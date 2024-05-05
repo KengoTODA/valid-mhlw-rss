@@ -30,7 +30,7 @@ jobs:
           mkdir rss
           for NAME in stf/news stf/kinkyu rss/inful_news rss/inful_medical rss/inful_local; do
             echo "creating $NAME..."
-            curl --user-agent "github.com/KengoTODA/valid-mhlw-rss:${{ github.sha }}" -s https://www.mhlw.go.jp/$NAME.rdf | sed -E 's#<copyright>(.*)</copyright>#<!-- \1 -->#g' > $NAME.rdf;
+            curl --user-agent "github.com/${{ github.action_repository }}:${{ github.sha }}" -s https://www.mhlw.go.jp/$NAME.rdf | sed -E 's#<copyright>(.*)</copyright>#<!-- \1 -->#g' > $NAME.rdf;
             sleep 1
           done
           
