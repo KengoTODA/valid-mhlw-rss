@@ -26,7 +26,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - run: |
-          curl https://www.mhlw.go.jp/stf/news.rdf | sed -e 's#<copyright>.*</copyright>#<!-- dropped copyright -->#' > news.rdf
+          curl -s https://www.mhlw.go.jp/stf/news.rdf | sed -e 's#<copyright>.*</copyright>#<!-- dropped copyright -->#' > news.rdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
